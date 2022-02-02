@@ -4,8 +4,7 @@ const mongodb = require('mongodb');
 const router = express.Router();
 
 router.get('/', async (request, response) => {
-    const users = await loadUsersCollectionFromMongoDB ();
-    console.log('utuu', users);            
+    const users = await loadUsersCollectionFromMongoDB ();         
     
     response.send(await users.find({}).toArray());
 });
@@ -14,11 +13,11 @@ router.post('/', async (request, response) => {
     const users = await loadUsersCollectionFromMongoDB ();
     await users.insertOne({
         firstName: request.body.firstName,
-        lastName: request.body.firstName,
-        email: request.body.lastName,
+        lastName: request.body.lastName,
+        email: request.body.email,
         gender: request.body.gender,
-        isAtive: request.body.isActive,
-        cretedAt: new Date()       
+        isActive: request.body.isActive,
+        createdAt: new Date()       
     });
     
     response.status(201).send();

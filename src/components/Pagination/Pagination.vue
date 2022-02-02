@@ -70,14 +70,15 @@ export default {
     },
     getReducedItems () {
       const itemsDisplay = []
-
-      for (let i = (this.currentButton - 1) * this.perPage; i < (this.currentButton - 1) * this.perPage + this.perPage; i++) {
-        itemsDisplay.push({ id: this.items[i].id, userId: this.items[i].userId, title: this.items[i].title })
+      const endReduce = ((this.currentButton - 1) * this.perPage + this.perPage < this.items.length) ? (this.currentButton - 1) * this.perPage + this.perPage : this.items.length
+      for (let i = (this.currentButton - 1) * this.perPage; i < endReduce; i++) {
+        // itemsDisplay.push({ id: this.items[i].id, userId: this.items[i].userId, title: this.items[i].title })
+        itemsDisplay.push({ ...this.items[i] })
       }
 
+      console.log(itemsDisplay, 'itemsDisplay')
       this.$emit('setItemsToDisplay', itemsDisplay)
-
-      return itemsDisplay
+      // return itemsDisplay
     }
   },
   ready () {
@@ -91,6 +92,8 @@ export default {
   mounted () {
     this.getButtons()
     this.getReducedItems()
+    console.log(this.getButtons(), 'btn')
+    console.log(this.items, 'items')
   },
   computed () {
   }

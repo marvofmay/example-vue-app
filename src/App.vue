@@ -3,7 +3,8 @@
     <router-link to="/">Główna</router-link> |
     <router-link to="/about">Info</router-link> |
     <router-link to="/contact">Kontakt</router-link> |
-    <router-link to="/json-placeholder">JSON Placeholder</router-link>
+    <router-link to="/json-placeholder">JSON Placeholder</router-link> |
+    <router-link to="/mongodb">MongoDB</router-link>
   </div>
   <router-view/>
 </template>

@@ -7,7 +7,7 @@
     <div class="col-md-8 offset-md-2">
       <table v-if="this.dataItemsLoaded" class="table table-hover text-left">
         <tr><td>#</td><td>userId</td><td>tytuł</td></tr>
-        <Tr v-for="(item, i) in this.itemsToDisplay" :key="i" :item="item" />
+        <Tr v-for="(item, i) in itemsToDisplay" :key="i" :item="item" />
       </table>
     </div>
 
@@ -15,7 +15,7 @@
     v-if="this.dataItemsLoaded"
     @handleClickButtonPagination="handleClickButtonPagination"
       :perPage="perPage"
-      :items=this.items
+      :items="items"
       @setItemsToDisplay="setItemsToDisplay"
     />
   </div>
@@ -51,15 +51,19 @@ export default {
       this.itemsToDisplay = items
     },
     getItems () {
-      axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
-        this.items = response.data
-        this.dataItemsLoaded = true
-        this.itemsToDisplay = response.data
-      })
+      try {
+        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => {
+          this.items = response.data
+          this.dataItemsLoaded = true
+          this.itemsToDisplay = response.data
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
-  mounted () {
-    this.items = this.getItems()
+  async mounted () {
+    this.items = await this.getItems()
   },
   computed () {
     console.log('computed JSON')

@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import JSONPlaceholderView from '../views/JSONPlaceholderView.vue'
+import MongoDB from '../views/MongoDB.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/json-placeholder',
     name: 'JSONPlaceholder',
     component: JSONPlaceholderView
+  },
+  {
+    path: '/mongodb',
+    name: 'MongoDB',
+    component: MongoDB
   }
 ]
 
