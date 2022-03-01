@@ -8,7 +8,7 @@ describe('Welcome.vue', () => {
   });    
     
   it('renders Welcome.vue ', () => {
-    // const wrapper = mount(Welcome)
+    const wrapper = mount(Welcome)
     expect(wrapper.exists()).toBe(true)    
   })    
     

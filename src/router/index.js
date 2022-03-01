@@ -4,6 +4,10 @@ import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import JSONPlaceholderView from '../views/JSONPlaceholderView.vue'
 import MongoDB from '../views/MongoDB.vue'
+import Register from '../views/Register.vue'
+import SignIn from '../views/SignIn.vue'
+import SignOut from '../views/SignOut.vue'
+import Secret from '../views/Secret.vue'
 
 const routes = [
   {
@@ -30,6 +34,26 @@ const routes = [
     path: '/mongodb',
     name: 'MongoDB',
     component: MongoDB
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/sign-in',
+    name: 'SignIn',
+    component: SignIn
+  },
+  {
+    path: '/sign-out',
+    name: 'SignOut',
+    component: SignOut
+  },
+  {
+    path: '/secret',
+    name: 'Secret',
+    component: Secret
   }
 ]
 
