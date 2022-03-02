@@ -6,9 +6,9 @@
     <router-link to="/json-placeholder">JSON Placeholder</router-link> |
     <router-link to="/mongodb">MongoDB</router-link> |
     <router-link to="/register">Rejestracja</router-link> |
-    <router-link to="/sign-in" v-if="!user.isLoggedIn">Logowanie</router-link> |
-    <router-link to="/sign-out" @click="signOut" v-if="user.isLoggedIn">Wylogouj</router-link> |
-    <router-link to="/secret" v-if="user.isLoggedIn">Sekret</router-link>
+    <router-link to="/sign-in" >Logowanie</router-link> <span v-if="user.isLoggedIn"> | </span>
+    <router-link to="/secret" v-if="user.isLoggedIn">Sekret</router-link> <span v-if="user.isLoggedIn">| </span>
+    <router-link to="/sign-out" @click="signOut" v-if="user.isLoggedIn">Wylogouj</router-link>
   </div>
   <router-view/>
 </template>
@@ -34,7 +34,7 @@ export default {
           // if we do not
           router.push('/')
         }
-        console.log('user: ')
+        console.log('user: ', user)
       })
     }
   },
