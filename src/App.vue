@@ -6,9 +6,9 @@
     <router-link to="/json-placeholder">JSON Placeholder</router-link> |
     <router-link to="/mongodb">MongoDB</router-link> |
     <router-link to="/register">Rejestracja</router-link> |
-    <router-link to="/sign-in" v-if="!this.isLoggedIn">Logowanie</router-link> |
-    <router-link to="/sign-out" @click="signOut" v-if="this.isLoggedIn">Wylogouj</router-link> |
-    <router-link to="/secret">Sekret</router-link>
+    <router-link to="/sign-in" v-if="!user.isLoggedIn">Logowanie</router-link> |
+    <router-link to="/sign-out" @click="signOut" v-if="user.isLoggedIn">Wylogouj</router-link> |
+    <router-link to="/secret" v-if="user.isLoggedIn">Sekret</router-link>
   </div>
   <router-view/>
 </template>
@@ -16,14 +16,10 @@
 <script>
 import firebase from 'firebase/app'
 import router from './router'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
-  data () {
-    return {
-      isLoggedIn: false
-    }
-  },
   methods: {
     signOut () {
       firebase.auth().signOut()
@@ -33,11 +29,12 @@ export default {
       // runs after firebase is initialized
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          this.isLoggedIn = true // if we have a user
+          // if we have a user
         } else {
-          this.isLoggedIn = false // if we do not
+          // if we do not
+          router.push('/')
         }
-        console.log('this.isLoggedIn: ', this.isLoggedIn)
+        console.log('user: ')
       })
     }
   },
@@ -50,6 +47,12 @@ export default {
   },
   updated () {
     console.log('Component App.vue has been updated!')
+  },
+  computed: {
+    // map `this.user` to `this.$store.getters.user`
+    ...mapGetters({
+      user: 'user'
+    })
   }
 }
 </script>

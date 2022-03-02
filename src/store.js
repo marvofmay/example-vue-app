@@ -1,12 +1,9 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
-
-Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     user: {
-      loggedIn: false,
+      isLoggedIn: false,
       data: null
     }
   },
@@ -17,7 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_LOGGED_IN (state, value) {
-      state.user.loggedIn = value
+      state.user.isLoggedIn = value
     },
     SET_USER (state, data) {
       state.user.data = data
