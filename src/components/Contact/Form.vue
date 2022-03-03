@@ -60,6 +60,7 @@ export default {
     method: String
   },
   methods: {
+    // walidacja
     validateFormMessage () {
       this.errors = []
       if (!this.items[0].inputValue) {
