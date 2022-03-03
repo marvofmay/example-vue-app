@@ -22,7 +22,8 @@ export default {
     }
   },
   methods: {
-    register () {
+    // register
+    register () {      
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
