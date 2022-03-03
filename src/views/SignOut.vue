@@ -7,7 +7,7 @@
 export default {
   name: 'SignOut',
   created () {
-    console.log('Component singout has been created!')
+    console.log('Component singout has been created!!')
   }
 }
 </script>

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Welcome from '@/components/Home/Welcome.vue'
 
 export default {
