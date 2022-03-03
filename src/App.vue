@@ -34,7 +34,6 @@ export default {
           // if we do not
           router.push('/')
         }
-        console.log('user: ', user)
       })
     }
   },
