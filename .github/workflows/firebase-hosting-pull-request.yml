@@ -23,7 +23,7 @@ jobs:
       - name: delete "node_modules"
         run: rm -rf node_modules/
         
-      - name: npm mongodb-query-parser        
+      - name: npm install mongodb-query-parser        
         run: npm i mongodb-query-parser
         
       - name: npm install 
