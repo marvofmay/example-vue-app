@@ -3,9 +3,6 @@
 
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
-
-env: 
-  CYPRESS_CACHE_FOLDER: ../../cypress/cache
   
 jobs:
   build_and_preview:
@@ -30,12 +27,8 @@ jobs:
       - name: mongo-express --ignore-scripts 
         run: npm install mongo-express --ignore-scripts 
         
-      - name: Cache Cypress Binary
-        id: cache-cypress-binary
-        uses: actions/cache@v2
-        with:
-          path: ../../cypress/cache
-          key: cypress-binary-${{ hashFiles('package-lock.json') }}        
+      - name: Install Cypress
+        runn: npm install cypress --save
         
       - name: npm install 
         run: npm install    
