@@ -9,9 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
-        mongodb-version: ['4.2', '4.4', '5.0']       
-
+        node-version: [16.x]  
+        
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
@@ -20,13 +19,21 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }} 
-
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.7.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}        
-
-      - run: npm ci && npm run build
+          
+      - name: delete "node_modules"
+        run: rm -rf node_modules/
+        
+      - name: mongo-express --ignore-scripts 
+        run: npm install mongo-express --ignore-scripts 
+        
+      - name: npm install 
+        run: npm install
+        
+      - name: npm run start server
+        run: npm run start        
+        
+      - name: npm run build
+        run: npm run build              
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
