@@ -27,17 +27,11 @@ jobs:
       - name: mongo-express --ignore-scripts 
         run: npm install mongo-express --ignore-scripts 
         
-      - name: Install Cypress --save
-        run: npm install cypress --save
-        
       - name: npm install 
-        run: npm install    
+        run: npm install          
         
-      - name: cypress integration tests /app-subpage/*
-        run: npx cypress run --spec "cypress/integration/app-subpage/*"
-        
-      - name: cypress integration tests /app-url/*
-        run: npx cypress run --spec "cypress/integration/app-url/*"        
+      - name: npm build
+        run: npm run build
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
