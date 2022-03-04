@@ -28,7 +28,7 @@ jobs:
         run: npm install mongo-express --ignore-scripts 
         
       - name: Install Cypress
-        runn: npm install cypress --save
+        run: npm install cypress --save
         
       - name: npm install 
         run: npm install    
