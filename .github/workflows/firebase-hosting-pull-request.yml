@@ -26,7 +26,14 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}        
 
-      - run: npm install && npm run build
+      - name: install VUE/CLI
+        run: npm install -g @vue/cli@latest
+        
+      - name: npm install 
+        run: npm install && npm run build
+        
+      - name: npm run build
+        run: npm run build        
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
