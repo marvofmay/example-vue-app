@@ -29,6 +29,9 @@ jobs:
       - name: install VUE/CLI
         run: npm install -g @vue/cli@latest
         
+      - name: delete "node_modules"
+        run: rm -rf node_modules/
+        
       - name: npm install 
         run: npm install
         
