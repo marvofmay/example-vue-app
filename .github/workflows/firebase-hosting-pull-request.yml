@@ -27,10 +27,7 @@ jobs:
         run: npm install mongo-express --ignore-scripts 
         
       - name: npm install 
-        run: npm install
-        
-      - name: npm run start server
-        run: npm run start        
+        run: npm install    
         
       - name: cypress integration tests /app-subpage/*
         run: npx cypress run --spec "cypress/integration/app-subpage/*"
