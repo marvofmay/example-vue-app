@@ -32,8 +32,11 @@ jobs:
       - name: npm run start server
         run: npm run start        
         
-      - name: npm run build
-        run: npm run build              
+      - name: cypress integration tests /app-subpage/*
+        run: npx cypress run --spec "cypress/integration/app-subpage/*"
+        
+      - name: cypress integration tests /app-url/*
+        run: npx cypress run --spec "cypress/integration/app-url/*"        
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
