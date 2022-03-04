@@ -30,7 +30,7 @@ jobs:
         run: npm install -g @vue/cli@latest
         
       - name: npm install 
-        run: npm install && npm run build
+        run: npm install
         
       - name: npm run build
         run: npm run build        
