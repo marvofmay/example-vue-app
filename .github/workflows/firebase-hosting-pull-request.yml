@@ -23,8 +23,8 @@ jobs:
       - name: delete "node_modules"
         run: rm -rf node_modules/
         
-      - name: npm install mongodb-query-parser        
-        run: npm i mongodb-query-parser
+      - name: npm install mongo-express --ignore-scripts 
+        run: npm install mongo-express --ignore-scripts 
         
       - name: npm install 
         run: npm install
