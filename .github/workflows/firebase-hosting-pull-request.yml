@@ -32,8 +32,8 @@ jobs:
       - name: npm install 
         run: npm install
         
-      - name: npm run build
-        run: npm run build        
+      - name: npm run vue-cli-service
+        run: npm run serve
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
