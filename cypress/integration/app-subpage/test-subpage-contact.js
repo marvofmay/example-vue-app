@@ -10,10 +10,10 @@ describe('example vue app /contact', () => {
   })    
   
   it('app view form', () => {
-    cy.get('form').find('input[name="username"]').type('Jhon Wick')
-    cy.get('form').find('input[name="email"]').type('jhon.wick@gmail.com')
-    cy.get('form').find('textarea')
-    cy.get('form').find('button')
+    cy.get('#contact-form').find('#username').type('Jhon Wick')
+    cy.get('#contact-form').find('#email').type('jhon.wick@gmail.com')
+    cy.get('#contact-form').find('textarea')
+    cy.get('#contact-form').find('button')
   })      
   
 })
