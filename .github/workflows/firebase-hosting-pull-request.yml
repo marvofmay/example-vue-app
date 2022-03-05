@@ -30,8 +30,7 @@ jobs:
       - name: npm install 
         run: npm install       
         
-      - name: Cypress run        
-        uses: cypress-io/github-action@v2       
+      - name: Cypress run            
         run: npx cypress run --spec "cypress/integration/app-subpage/*"
         
       - name: npm build
