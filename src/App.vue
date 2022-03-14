@@ -38,7 +38,7 @@ export default {
     }
   },
   created () {
-    console.log('Component App.vue has been created!')
+    console.log('Component App.vue has been created!!')
     this.checkIsUserLoggedIn()
   },
   mounted () {
