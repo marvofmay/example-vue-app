@@ -11,7 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
+
+      - name: delete "node_modules"
+        run: rm -rf node_modules/
+        
+      - name: mongo-express --ignore-scripts 
+        run: npm install mongo-express --ignore-scripts 
+        
+      - name: npm install 
+        run: npm install               
+
+      - name: npm build
+        run: npm run build        
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
