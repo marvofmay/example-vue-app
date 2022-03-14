@@ -1,46 +1,46 @@
-const express = require('express');
-const mongodb = require('mongodb');
+const express = require('express')
+const mongodb = require('mongodb')
 
-const router = express.Router();
+const routerAPI = express.Router()
 
-router.get('/', async (request, response) => {
-    const users = await loadUsersCollectionFromMongoDB ();         
-    
-    response.send(await users.find({}).toArray());
-});
+routerAPI.get('/', async (request, response) => {
+  const users = await loadUsersCollectionFromMongoDB()
+  console.log('utuu', users)
 
-router.post('/', async (request, response) => {
-    const users = await loadUsersCollectionFromMongoDB ();
-    await users.insertOne({
-        firstName: request.body.firstName,
-        lastName: request.body.lastName,
-        email: request.body.email,
-        gender: request.body.gender,
-        isActive: request.body.isActive,
-        createdAt: new Date()       
-    });
-    
-    response.status(201).send();
-});
+  response.send(await users.find({}).toArray())
+})
 
-router.delete('/:id', async (request, response) => {
-    const users = await loadUsersCollectionFromMongoDB ();
-    await users.deleteOne({
-        _id: new mongodb.ObjectId(request.params.id)     
-    });
-    
-    response.status(200).send();
-});
+routerAPI.post('/', async (request, response) => {
+  const users = await loadUsersCollectionFromMongoDB()
+  await users.insertOne({
+    firstName: request.body.firstName,
+    lastName: request.body.lastName,
+    email: request.body.email,
+    gender: request.body.gender,
+    isActive: request.body.isActive,
+    createdAt: new Date()
+  })
+
+  response.status(201).send()
+})
+
+routerAPI.delete('/:id', async (request, response) => {
+  const users = await loadUsersCollectionFromMongoDB()
+  await users.deleteOne({ _id: new mongodb.ObjectId(request.params.id) })
+
+  response.status(200).send()
+})
 
 async function loadUsersCollectionFromMongoDB () {
-    let url = "mongodb://localhost:27017/";
+  const uri = 'mongodb+srv://marcin:IccCLja3dbkui7Bs@cluster0.v0glz.mongodb.net/example-vue-app-db?retryWrites=true&w=majority'
 
-    const client = await mongodb.MongoClient.connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });  
-    
-    return client.db('example-vue-app').collection('users');
+  const client = await mongodb.MongoClient.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+
+  return client.db('example-vue-app').collection('user')
+
 }
 
-module.exports = router;
+module.exports = routerAPI

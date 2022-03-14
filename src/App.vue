@@ -6,7 +6,7 @@
     <router-link to="/json-placeholder">JSON Placeholder</router-link> |
     <router-link to="/mongodb">MongoDB</router-link> |
     <router-link to="/register">Rejestracja</router-link> |
-    <router-link to="/sign-in" >Logowanie</router-link> <span v-if="user.isLoggedIn"> | </span>
+    <router-link to="/sign-in" v-if="!user.isLoggedIn">Logowanie</router-link> <span v-if="user.isLoggedIn"> | </span>
     <router-link to="/secret" v-if="user.isLoggedIn">Sekret</router-link> <span v-if="user.isLoggedIn">| </span>
     <router-link to="/sign-out" @click="signOut" v-if="user.isLoggedIn">Wylogouj</router-link>
   </div>
@@ -63,6 +63,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 90%;
+  margin: auto;
 }
 
 #nav {

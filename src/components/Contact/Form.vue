@@ -7,8 +7,9 @@
         <li v-for="(error, i) in errors" :key="i">{{ error }}</li>
       </ul>
     </p>
-    <form class="form" @submit.prevent="handleSubmitMessage" :method=method >
+    <form id="contact-form" class="form" @submit.prevent="handleSubmitMessage" :method=method >
       <Input v-for="(item, i) in items"
+      :id="item.id"
       :label="item.inputLabelName"
       :type="item.inputType"
       :name="item.inputName"
@@ -41,14 +42,16 @@ export default {
           inputType: 'text',
           inputName: 'username',
           inputValue: '',
-          inputPlaceholder: 'wpisz imię'
+          inputPlaceholder: 'wpisz imię',
+          id: 'username'
         },
         {
           inputLabelName: 'email',
           inputType: 'email',
           inputName: 'email',
           inputValue: '',
-          inputPlaceholder: 'wpisz email'
+          inputPlaceholder: 'wpisz email',
+          id: 'email'
         }
       ],
       textAreaValue: '',

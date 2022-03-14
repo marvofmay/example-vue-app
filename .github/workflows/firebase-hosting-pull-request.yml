@@ -3,6 +3,7 @@
 
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
+  
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
@@ -23,14 +24,20 @@ jobs:
       - name: delete "node_modules"
         run: rm -rf node_modules/
         
-      - name: npm mongodb-query-parser        
-        run: npm i mongodb-query-parser
+      - name: mongo-express --ignore-scripts 
+        run: npm install mongo-express --ignore-scripts 
+        
+      #- name: install Cypress by npm
+      #  run: npm install cypress --save-dev    
         
       - name: npm install 
-        run: npm install
+        run: npm install               
         
-      - name: npm run vue-cli-service
-        run: npm run serve
+      #- name: Cypress run            
+      #  run: npx cypress run --spec "cypress/integration/app-subpage/*"
+        
+      - name: npm build
+        run: npm run build
       
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
