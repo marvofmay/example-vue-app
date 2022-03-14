@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h2>Dane z MongoDB!!</h2>
+    <h2>Dane z MongoDB!!!</h2>
     <div class="row">
       <div class="col-md-8">
         <Mongo :users="users" v-if="users.length > 0" />
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Mongo from '@/components/Mongo/Mongo.vue'
 import Form from '@/components/Mongo/Form.vue'
 import UserService from '../../server/service/UserService'
