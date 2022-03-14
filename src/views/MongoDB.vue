@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <h2>Dane z MongoDB!!</h2>
+    <h2>Dane z MongoDB!!!</h2>
     <div class="row">
       <div class="col-md-8">
         <Mongo :users="users" v-if="users.length > 0" />
