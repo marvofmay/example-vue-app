@@ -29,16 +29,16 @@ export default {
       // runs after firebase is initialized
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          // if we have a user
+          // if we have a user logged
         } else {
-          // if we do not
+          // if we do not have logged user
           router.push('/')
         }
       })
     }
   },
   created () {
-    console.log('Component App.vue has been created!')
+    console.log('Component App.vue has been created!!')
     this.checkIsUserLoggedIn()
   },
   mounted () {
