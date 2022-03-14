@@ -31,7 +31,7 @@ export default {
         if (user) {
           // if we have a user logged
         } else {
-          // if we do not
+          // if we do not have logged user
           router.push('/')
         }
       })
