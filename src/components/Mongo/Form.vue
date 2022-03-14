@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="row">
-        <label class="col-sm-2 col-form-label">imię:</label>
+        <label class="col-sm-2 col-form-label">email:</label>
         <div class="col-md-4">
           <input type="email" name="email" class="form-control" v-model="email">
         </div>
@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     async handleSubmit () {
-      // console.log('form', this.firstName, this.lastName, this.gender, this.active)
       try {
         const response = await UserService.createUser({
           firstName: this.firstName,
