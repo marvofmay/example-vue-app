@@ -27,14 +27,14 @@ jobs:
       - name: mongo-express --ignore-scripts 
         run: npm install mongo-express --ignore-scripts 
         
-      - name: install Cypress by npm
-        run: npm install cypress --save-dev    
+      #- name: install Cypress by npm
+      #  run: npm install cypress --save-dev    
         
       - name: npm install 
         run: npm install               
         
-      - name: Cypress run            
-        run: npx cypress run --spec "cypress/integration/app-subpage/*"
+      #- name: Cypress run            
+      #  run: npx cypress run --spec "cypress/integration/app-subpage/*"
         
       - name: npm build
         run: npm run build
