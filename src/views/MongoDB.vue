@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Mongo from '@/components/Mongo/Mongo.vue'
 import Form from '@/components/Mongo/Form.vue'
 import UserService from '../../server/service/UserService'
