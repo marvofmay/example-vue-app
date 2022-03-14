@@ -35,7 +35,7 @@ export default {
       try {
         this.users = []
         this.users = await UserService.getUsers()
-        console.log(this.users, 'MongoDB.vue getUsersFromMongoDB')
+        console.log(this.users, 'component MongoDB.vue getUsersFromMongoDB')
       } catch (error) {
         console.log(error)
       }
