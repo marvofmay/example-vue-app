@@ -29,9 +29,9 @@ export default {
       // runs after firebase is initialized
       firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          // if we have a user logged
+          // if we have a user logged in application
         } else {
-          // if we do not have logged user
+          // if we do not have logged user in application
           router.push('/')
         }
       })
